@@ -15,7 +15,7 @@ app.use(router.routes());
 app.use(AppRouter.routes());
 
 // Listening port
-app.listen(3000)
+app.listen(process.env.NODE_PORT)
 
 // Success Message
 console.log(`Up and running. Listening port: ${process.env.NODE_PORT} on ${process.env.NODE_ENV} mode.`)
