@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-server": "nodemon --watch './src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts"
+    "watch-server": "NODE_ENV=development NODE_PORT=3000 nodemon --watch './src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts"
   },
   "author": "Juan Carlos Migliavacca",
   "license": "ISC",
