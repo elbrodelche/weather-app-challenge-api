@@ -1,0 +1,6 @@
+# IDE specific
+.idea/
+
+#Exclude generated files
+node_modules/
+dist/
