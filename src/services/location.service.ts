@@ -9,8 +9,9 @@ export class LocationService {
         this.locationRepo = locationRepo
     }
     /**
-     *@api {get} /location
-     *@apiGroup Location
+     * @api {get} /location
+     * @apiVersion 1.0.0
+     * @apiGroup Location
      * @apiName Get Location
      * @apiSuccess {Object[]} Contains the response of the backend with 2 parameters.
      * @apiSuccess {String} status Respnse status.

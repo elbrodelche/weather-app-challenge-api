@@ -3,6 +3,7 @@
     "type": "get",
     "url": "/location",
     "title": "",
+    "version": "1.0.0",
     "group": "Location",
     "name": "Get_Location",
     "success": {
@@ -59,7 +60,6 @@
       }
     ],
     "description": "<p>All users can see their location</p>",
-    "version": "0.0.0",
     "filename": "src/services/location.service.ts",
     "groupTitle": "Location"
   }
