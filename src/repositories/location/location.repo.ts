@@ -1,5 +1,5 @@
-import { CityLocation } from '../../models/location'
+import { CityLocation } from '../../models/location';
 
-export  interface ILocationRepo {
-    getLocation(): Promise<CityLocation>
+export interface ILocationRepo {
+    getLocation(): Promise<CityLocation>;
 }

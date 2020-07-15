@@ -1,12 +1,11 @@
-import {ILocationRepo} from "../repositories/location/location.repo";
-import {CityLocation} from "../models/location";
+import { ILocationRepo } from '../repositories/location/location.repo';
+import { CityLocation } from '../models/location';
 
 export class LocationService {
-
     private locationRepo: ILocationRepo;
 
-    constructor(locationRepo:ILocationRepo) {
-        this.locationRepo = locationRepo
+    constructor(locationRepo: ILocationRepo) {
+        this.locationRepo = locationRepo;
     }
     /**
      * @api {get} /location
@@ -27,7 +26,7 @@ export class LocationService {
      * curl -i http://localhost:3000/v1/location
      * @apiDescription All users can see their location
      */
-    async getLocation(): Promise<CityLocation>{
+    async getLocation(): Promise<CityLocation> {
         return await this.locationRepo.getLocation();
     }
 }

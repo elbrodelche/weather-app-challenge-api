@@ -1,17 +1,16 @@
-import * as Router from "koa-router";
+import * as Router from 'koa-router';
 
 const router = new Router();
 const forecastRouter = router
 
     // GET forecast
-    .get("/", async ctx => {
+    .get('/', async (ctx) => {
         try {
             // Response
-            ctx.body = 'GET forecast'
-
+            ctx.body = 'GET forecast';
         } catch (err) {
-            ctx.throw(500,  err.message || "Sorry, an error has occurred.");
+            ctx.throw(500, err.message || 'Sorry, an error has occurred.');
         }
-    })
+    });
 
 export default forecastRouter;
