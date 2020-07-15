@@ -9,8 +9,15 @@ const router = new Router();
 // @ts-ignore
 const AppRouter = router
     // Index
-    .get("/", async ctx => {
-        ctx.body = `Up and running. Listening port: ${process.env.NODE_PORT} on ${process.env.NODE_ENV} mode.`;
+    .get("/ping", async ctx => {
+        ctx.body =
+            `
+            Pong. 
+            
+            Up and running. 
+            Port: ${process.env.NODE_PORT}
+            Env:  ${process.env.NODE_ENV}
+            `;
     })
 
     // Location
