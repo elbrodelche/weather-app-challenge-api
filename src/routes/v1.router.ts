@@ -5,8 +5,9 @@ import forecastRouter from './v1/forecast';
 
 const version = '/v1';
 const router = new Router();
+router.prefix(version);
 
-const AppRouter = router
+const V1Router = router
     // Index
     .get('/ping', async (ctx) => {
         ctx.body = `
@@ -19,12 +20,12 @@ const AppRouter = router
     })
 
     // Location
-    .use(`${version}/location`, locationRouter.routes(), locationRouter.allowedMethods())
+    .use(`/location`, locationRouter.routes(), locationRouter.allowedMethods())
 
     // Current
-    .use(`${version}/current`, currentRouter.routes(), currentRouter.allowedMethods())
+    .use(`/current`, currentRouter.routes(), currentRouter.allowedMethods())
 
     // Forecast
-    .use(`${version}/forecast`, forecastRouter.routes(), forecastRouter.allowedMethods());
+    .use(`/forecast`, forecastRouter.routes(), forecastRouter.allowedMethods());
 
-export default AppRouter;
+export default V1Router;
