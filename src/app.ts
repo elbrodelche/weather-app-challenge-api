@@ -4,6 +4,7 @@ import * as Router from 'koa-router';
 import * as logger from 'koa-logger';
 import * as serve from 'koa-static';
 import V1Router from './routes/v1.router';
+import BaseRouter from './routes/base.router';
 
 // Koa instances
 const app = new Koa();
@@ -15,6 +16,7 @@ app.use(logger());
 
 // Router
 app.use(router.routes());
+app.use(BaseRouter.routes());
 app.use(V1Router.routes());
 app.use(serve('./public'));
 
