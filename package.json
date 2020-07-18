@@ -7,7 +7,7 @@
         "test": "jest --coverage",
         "test:watch": "jest --coverage --watchAll",
         "watch-server": "nodemon --watch './src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts",
-        "doc": "apidoc -i src/services/ -o public/",
+        "doc": "apidoc -i src/ -o public/",
         "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix --ignore-path .gitignore",
         "prettier": "prettier --ignore-path .gitignore  \"**/*.+(ts|tsx|json)\"",
         "format": "npm run prettier -- --write",
