@@ -37,7 +37,7 @@ interface sys {
 }
 
 export class CurrentWeather {
-    [x: string]: { name: any };
+    'city': { name: string };
     'coord': coord;
     'weather': [weather];
     'base': string;
