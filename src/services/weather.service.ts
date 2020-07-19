@@ -10,7 +10,7 @@ export class WeatherService {
         this.weatherRepo = weatherRepo;
     }
 
-    async getWeather(city?: string): Promise<CurrentWeather> {
+    async getWeather(city?: string, isForecast?: boolean): Promise<CurrentWeather> {
         const locationService = new LocationService(new IpApiLocationRepo());
         let location;
         if (!city) {
@@ -19,6 +19,6 @@ export class WeatherService {
             location = city;
         }
 
-        return await this.weatherRepo.getWeather(location);
+        return await this.weatherRepo.getWeather(location, isForecast);
     }
 }
