@@ -6,7 +6,7 @@ test('sould respond 200 to /location', async () => {
     expect(response.status).toBe(200);
 });
 
-test('should return and object with data', async () => {
+test('should return and object with city', async () => {
     const response = await request(app.callback()).get('/v1/location');
     expect(response.body).toEqual(
         expect.objectContaining({
