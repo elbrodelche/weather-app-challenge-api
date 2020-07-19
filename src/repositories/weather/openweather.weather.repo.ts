@@ -15,8 +15,10 @@ export class OpenWeatherWeatherRepo implements IWeatherRepo {
         this.appId = process.env.OPEN_WEATHER_API;
     }
 
-    async getWeather(city: string): Promise<CurrentWeather> {
-        const url = `${this.appUrl}?q=${city}&appid=${this.appId}`;
+    async getWeather(city: string, isForecast?: boolean): Promise<CurrentWeather> {
+        const url = isForecast
+            ? `${this.appUrl}forecast?q=${city}&appid=${this.appId}`
+            : `${this.appUrl}weather?q=${city}&appid=${this.appId}`;
         const response = await fetch(url);
         return await response.json();
     }
