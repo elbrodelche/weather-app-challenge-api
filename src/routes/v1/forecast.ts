@@ -74,7 +74,7 @@ const forecastRouter = router
         // Get data
         const { city } = ctx.params;
         const weather = await weatherService.getWeather(city, true);
-        const { name } = weather;
+        const { name } = weather.city;
 
         // Error handling
         ctx.assert(weather, 400);

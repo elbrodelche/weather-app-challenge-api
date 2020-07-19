@@ -6,7 +6,7 @@ define({ "api": [
     "version": "1.0.0",
     "name": "GetCurrent",
     "group": "Current",
-    "description": "<p>Retrieves all location data related to server based on Ip Api sercice with the current weather.</p>",
+    "description": "<p>Retrieves all location data related to server based on Ip Api service with the current weather.</p>",
     "examples": [
       {
         "title": "Example usage:",
@@ -125,6 +125,133 @@ define({ "api": [
     },
     "filename": "src/routes/v1/current.ts",
     "groupTitle": "Current"
+  },
+  {
+    "type": "get",
+    "url": "/forecast",
+    "title": "Get the server 5 days forecast data and weather",
+    "version": "1.0.0",
+    "name": "GetForecast",
+    "group": "Forecast",
+    "description": "<p>Retrieves all location data related to server based on Ip Api service with the 5 day forecast weather.</p>",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://localhost/v1/forecast",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>City name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "weather",
+            "description": "<p>An object containing 5 day weather information</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Can't reach location.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 400  Bad Request\nCan't reach location",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/routes/v1/forecast.ts",
+    "groupTitle": "Forecast"
+  },
+  {
+    "type": "get",
+    "url": "/forecast",
+    "title": "Get the server 5 day forecast data and weather from specified city",
+    "version": "1.0.0",
+    "name": "GetForecastCity",
+    "group": "Forecast",
+    "description": "<p>Retrieves all location data related to server based on Ip Api service with the forecast weather  from specified city.</p>",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://localhost/v1/forecast/:city",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "optional",
+            "description": "<p>name of the city.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>City name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "weather",
+            "description": "<p>An object containing weather information</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Can't reach location.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 400  Bad Request\nCan't reach location",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/routes/v1/forecast.ts",
+    "groupTitle": "Forecast"
   },
   {
     "type": "get",
