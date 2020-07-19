@@ -81,10 +81,10 @@ Project analysis and feature structure can be found on **https://github.com/elbr
 - [Node v12.18.0](https://nodejs.org/en/)
 - [TSC CLI Version 3.9.6](https://www.npmjs.com/package/typescript)
 - [ApiDoc CLi Latest](https://apidocjs.com)
- 
-### Install
- 
- Clone repo
+- [Docker](https://www.docker.com)
+
+### First steps
+Clone repo
  ```bash
 git clone git@github.com:elbrodelche/weather-app-challenge-api.git
 ```
@@ -102,12 +102,21 @@ cp .env.example .env
  | OPEN_WEATHER_URL | openweathermap api url | http://api.openweathermap.org/data/2.5/ |
  
  
+### Docker installation
+
+ Open terminal and paste
+ ```bash
+docker-compose up -d
+```
+
+### Computer installation
+ 
  Install dependencies
   ```bash
 npm i
  ```
 
- Run proyect (dev)
+ Run project (dev)
   ```bash
  npm run watch-server
  ```
@@ -116,6 +125,9 @@ npm i
   ```bash
  npm run build
  ```
+### Documentation
+
+You will find complete API documentation on **localhost:3000/**
 
 ## Features
 
@@ -125,6 +137,7 @@ npm i
 - ApiDoc documentation 
 - Multi router architecture
 - Dependency injection service structure
+- Docker deployment
 
 ## Coverage
 ```bash

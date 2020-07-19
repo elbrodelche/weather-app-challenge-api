@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  backend:
+    environment:
+      - NODE_PORT=${NODE_PORT}
+      - NODE_ENV=${NODE_ENV}
+      - OPEN_WEATHER_API=${OPEN_WEATHER_API}
+      - OPEN_WEATHER_URL=${OPEN_WEATHER_URL}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: weather-api
+    volumes:
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    command: npm run watch-server
