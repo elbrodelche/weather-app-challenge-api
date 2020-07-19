@@ -102,7 +102,7 @@ cp .env.example .env
  | OPEN_WEATHER_URL | openweathermap api url | http://api.openweathermap.org/data/2.5/ |
  
  
-### Docker installation
+### Docker installation (OSX only)
 
  Open terminal and paste
  ```bash
