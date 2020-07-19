@@ -1,6 +1,5 @@
 import { ILocationRepo } from './location.repo';
 import { CityLocation } from '../../models/location';
-
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import * as ipapi from 'ipapi.co';

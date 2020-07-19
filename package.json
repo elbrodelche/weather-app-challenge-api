@@ -4,15 +4,16 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "build": "tsc",
         "test": "jest --coverage",
         "test:watch": "jest --coverage --watchAll",
         "watch-server": "nodemon --watch './src/**/*' -e ts,tsx --exec 'ts-node' ./src/server.ts",
-        "doc": "apidoc -i src/services/ -o public/",
+        "doc": "apidoc -i src/ -o public/",
         "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix --ignore-path .gitignore",
         "prettier": "prettier --ignore-path .gitignore  \"**/*.+(ts|tsx|json)\"",
         "format": "npm run prettier -- --write",
-        "check-format": "npm run prettier -- --list-different",
-        "validate": "npm-run-all --paralell check-format && lint && test && tsc"
+        "check-format": "npm run prettier --list-different",
+        "validate": "npm-run-all --parallel check-format lint test build"
     },
     "author": "Juan Carlos Migliavacca",
     "license": "ISC",
@@ -22,10 +23,12 @@
         "koa": "^2.13.0",
         "koa-logger": "^3.2.1",
         "koa-router": "^9.1.0",
-        "koa-static": "^5.0.0"
+        "koa-static": "^5.0.0",
+        "node-fetch": "^2.6.0"
     },
     "devDependencies": {
         "@types/dotenv": "^8.2.0",
+        "@types/node-fetch": "^2.5.7",
         "@types/jest": "^26.0.4",
         "@types/supertest": "^2.0.10",
         "@types/koa": "^2.11.3",
