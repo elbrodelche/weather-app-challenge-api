@@ -1,5 +1,4 @@
 import { ILocationRepo } from '../repositories/location/location.repo';
-import { CityLocation } from '../models/location';
 
 export class LocationService {
     private locationRepo: ILocationRepo;

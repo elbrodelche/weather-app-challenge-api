@@ -27,21 +27,17 @@ const locationRouter = router
      *     Can't reach location
      */
     .get('/', async (ctx) => {
-        try {
-            // Response
-            const location = await service.getLocation();
-            if (location) {
-                ctx.status = 200;
-                ctx.body = {
-                    city: location,
-                };
-            } else {
-                ctx.status = 400;
-                ctx.body = "Can't reach location.";
-            }
-        } catch (err) {
-            ctx.throw(500, err.message || 'Sorry, an error has occurred.');
-        }
+        // Get data
+        const location = await service.getLocation();
+
+        // Error handling
+        ctx.assert(location, 400);
+
+        // Response
+        ctx.status = 200;
+        ctx.body = {
+            city: location,
+        };
     });
 
 export default locationRouter;
