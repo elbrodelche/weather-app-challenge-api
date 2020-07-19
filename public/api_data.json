@@ -1,44 +1,38 @@
 [
     {
         "type": "get",
-        "url": "/location",
-        "title": "",
+        "url": "/current",
+        "title": "Get the server current location data and weather",
         "version": "1.0.0",
-        "group": "Location",
-        "name": "Get_Location",
+        "name": "GetCurrent",
+        "group": "Current",
+        "description": "<p>Retrieves all location data related to server based on Ip Api sercice with the current weather.</p>",
+        "examples": [
+            {
+                "title": "Example usage:",
+                "content": "curl -i http://localhost/v1/current",
+                "type": "json"
+            }
+        ],
         "success": {
             "fields": {
                 "Success 200": [
                     {
                         "group": "Success 200",
-                        "type": "Object[]",
+                        "type": "String",
                         "optional": false,
-                        "field": "Contains",
-                        "description": "<p>the response of the backend with 2 parameters.</p>"
+                        "field": "city",
+                        "description": "<p>City name</p>"
                     },
                     {
                         "group": "Success 200",
-                        "type": "String",
+                        "type": "Object",
                         "optional": false,
-                        "field": "status",
-                        "description": "<p>Respnse status.</p>"
-                    },
-                    {
-                        "group": "Success 200",
-                        "type": "String",
-                        "optional": false,
-                        "field": "data",
-                        "description": "<p>Response body.</p>"
+                        "field": "weather",
+                        "description": "<p>An object cointaining weather information</p>"
                     }
                 ]
-            },
-            "examples": [
-                {
-                    "title": "Success-Response:",
-                    "content": "HTTP/1.1 200 OK\n{\n  \"status\": \"success\",\n  \"data\": {\"ip\":\"181.44.60.35\",\"city\":\"Buenos Aires\",\"region\":\"Buenos Aires F.D.\",\"region_code\":\"C\",\"country\":\"AR\",\"country_code\":\"AR\",\"country_code_iso3\":\"ARG\",\"country_capital\":\"Buenos Aires\",\"country_tld\":\".ar\",\"country_name\":\"Argentina\",\"continent_code\":\"SA\",\"in_eu\":false,\"postal\":\"1871\",\"latitude\":-34.6021,\"longitude\":-58.3845,\"timezone\":\"America/Argentina/Buenos_Aires\",\"utc_offset\":\"-0300\",\"country_calling_code\":\"+54\",\"currency\":\"ARS\",\"currency_name\":\"Peso\",\"languages\":\"es-AR,en,it,de,fr,gn\",\"country_area\":2766890,\"country_population\":41343201,\"asn\":\"AS27747\",\"org\":\"Telecentro S.A.\"}\n}",
-                    "type": "json"
-                }
-            ]
+            }
         },
         "error": {
             "fields": {
@@ -46,21 +40,171 @@
                     {
                         "group": "Error 4xx",
                         "optional": false,
-                        "field": "Error",
+                        "field": "BadRequest",
                         "description": "<p>Can't reach location.</p>"
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "title": "Response (example):",
+                    "content": "HTTP/1.1 400  Bad Request\nCan't reach location",
+                    "type": "json"
+                }
+            ]
+        },
+        "filename": "src/routes/v1/current.ts",
+        "groupTitle": "Current"
+    },
+    {
+        "type": "get",
+        "url": "/current",
+        "title": "Get the server current location data and weather from specified city",
+        "version": "1.0.0",
+        "name": "GetCurrentCity",
+        "group": "Current",
+        "description": "<p>Retrieves all location data related to server based on Ip Api sercice with the current weather  from specified city.</p>",
+        "examples": [
+            {
+                "title": "Example usage:",
+                "content": "curl -i http://localhost/v1/current/:city",
+                "type": "json"
+            }
+        ],
+        "parameter": {
+            "fields": {
+                "Parameter": [
+                    {
+                        "group": "Parameter",
+                        "type": "String",
+                        "optional": false,
+                        "field": "optional",
+                        "description": "<p>name of the city.</p>"
                     }
                 ]
             }
         },
+        "success": {
+            "fields": {
+                "Success 200": [
+                    {
+                        "group": "Success 200",
+                        "type": "String",
+                        "optional": false,
+                        "field": "city",
+                        "description": "<p>City name</p>"
+                    },
+                    {
+                        "group": "Success 200",
+                        "type": "Object",
+                        "optional": false,
+                        "field": "weather",
+                        "description": "<p>An object containing weather information</p>"
+                    }
+                ]
+            }
+        },
+        "error": {
+            "fields": {
+                "Error 4xx": [
+                    {
+                        "group": "Error 4xx",
+                        "optional": false,
+                        "field": "BadRequest",
+                        "description": "<p>Can't reach location.</p>"
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "title": "Response (example):",
+                    "content": "HTTP/1.1 400  Bad Request\nCan't reach location",
+                    "type": "json"
+                }
+            ]
+        },
+        "filename": "src/routes/v1/current.ts",
+        "groupTitle": "Current"
+    },
+    {
+        "type": "get",
+        "url": "/location",
+        "title": "Get the server location data",
+        "version": "1.0.0",
+        "name": "GetLocation",
+        "group": "Server",
+        "description": "<p>Retrieves all location data related to server based on Ip Api sercice.</p>",
         "examples": [
             {
                 "title": "Example usage:",
-                "content": "curl -i http://localhost:3000/v1/location",
-                "type": "curl"
+                "content": "curl -i http://localhost/v1/location",
+                "type": "json"
             }
         ],
-        "description": "<p>All users can see their location</p>",
-        "filename": "src/services/location.service.ts",
-        "groupTitle": "Location"
+        "success": {
+            "fields": {
+                "Success 200": [
+                    {
+                        "group": "Success 200",
+                        "type": "String",
+                        "optional": false,
+                        "field": "city",
+                        "description": "<p>City name</p>"
+                    }
+                ]
+            }
+        },
+        "error": {
+            "fields": {
+                "Error 4xx": [
+                    {
+                        "group": "Error 4xx",
+                        "optional": false,
+                        "field": "BadRequest",
+                        "description": "<p>Can't reach location.</p>"
+                    }
+                ]
+            },
+            "examples": [
+                {
+                    "title": "Response (example):",
+                    "content": "HTTP/1.1 400  Bad Request\nCan't reach location",
+                    "type": "json"
+                }
+            ]
+        },
+        "filename": "src/routes/v1/location.ts",
+        "groupTitle": "Server"
+    },
+    {
+        "type": "get",
+        "url": "/ping",
+        "title": "Check for sever health",
+        "version": "1.0.0",
+        "name": "GetPing",
+        "group": "Server",
+        "description": "<p>Standard health check on server.</p>",
+        "examples": [
+            {
+                "title": "Example usage:",
+                "content": "curl -i http://localhost/ping",
+                "type": "json"
+            }
+        ],
+        "success": {
+            "fields": {
+                "Success 200": [
+                    {
+                        "group": "Success 200",
+                        "type": "String",
+                        "optional": false,
+                        "field": "text",
+                        "description": "<p>Pong text and some server status.</p>"
+                    }
+                ]
+            }
+        },
+        "filename": "src/routes/base.router.ts",
+        "groupTitle": "Server"
     }
 ]
